@@ -23,8 +23,7 @@ if __name__ == "__main__":
   new_sym_prefix = os.path.realpath(sys.argv[3])
 
   for root, dirnames, filenames in os.walk(folder):
-    
-    for filename in filenames:
+    for filename in filenames + dirnames:
        filename = os.path.join(root, filename)
        print "Looking at file:" + filename
 
@@ -37,5 +36,3 @@ if __name__ == "__main__":
             symlink_force(new_target_path, filename)
 
             print "-- relink link from:" + original_target_path + " to:" + new_target_path
-            
-
